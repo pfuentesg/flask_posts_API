@@ -1,11 +1,8 @@
 from flask import Flask
-
+from resources import mod
 app = Flask(__name__)
 
-
-@app.route('/')
-def hello_world():
-    return 'Hello World!'
+app.register_blueprint(mod)
 
 
 if __name__ == '__main__':
