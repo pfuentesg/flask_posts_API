@@ -1,9 +1,15 @@
-from flask import Flask
-from resources import mod
-app = Flask(__name__)
+from Server import app
+from resources import Holi
+from api import MainApi
 
-app.register_blueprint(mod)
+
+
+def add_resources():
+    api = MainApi(app)
+    api.add_source(Holi, '/holi')
+
 
 
 if __name__ == '__main__':
+    add_resources()
     app.run()
