@@ -1,6 +1,5 @@
 from flask_restful import Api
-from flask import Blueprint
-from resources import Holi
+
 
 
 class MainApi():

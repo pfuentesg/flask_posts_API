@@ -1,6 +1,6 @@
-from Server import app
-from resources import Holi
-from api import MainApi
+from http_instance.Server import app
+from Resources.resources import Holi
+from http_instance.api import MainApi
 
 
 
