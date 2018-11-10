@@ -2,9 +2,10 @@ from http_instance.Server import app
 from Resources.Posts import Posts
 from http_instance.api import MainApi
 
+api = MainApi(app)
+
 
 def add_resources():
-    api = MainApi(app)
     api.add_source(Posts, '/')
 
 

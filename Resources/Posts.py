@@ -18,7 +18,13 @@ class Posts(Resource):
         self.removePost = removePost
 
     def get(self):
-        return self.getPosts.execute()
+        responses = getPosts.responses
+        res = self.getPosts.execute()
+
+        if res == responses['post_not_found']:
+            return 'No posts found', 404
+        else:
+            return res
 
     def post(self):
         return self.createPosts.execute()
