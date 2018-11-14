@@ -1,6 +1,6 @@
-from flask_restful import Resource
+from flask_restful import Resource, reqparse
 from Aplication import GetPosts, CreatePost, EditPost, GetOnePost, RemovePost
-
+from flask import  request
 getPosts = GetPosts.GetPosts()
 getOnePost = GetOnePost.GetOnePost()
 createPosts = CreatePost.CreatePost()
@@ -27,7 +27,8 @@ class Posts(Resource):
             return res
 
     def post(self):
-        return self.createPosts.execute()
+        data = request.get_json(force=True)
+        return self.createPosts.execute(data)
 
     def patch(self):
         return self.editPost.execute()

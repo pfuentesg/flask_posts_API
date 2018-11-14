@@ -1,6 +1,11 @@
+from clients.Db import Db
+
+db = Db()
 
 
 class PostRepository:
+    def __init__(self):
+        self.db = Db()
 
     def getOne(self):
         return 'get one post repositories'
@@ -8,8 +13,12 @@ class PostRepository:
     def getUsers(self):
         return 'holi found'
 
-    def create(self):
-        return 'create post from repositories'
+    def create(self, body):
+        content = body['content']
+        author = body['author']
+        INSERTION = self.db.insert(content, author)
+        return INSERTION
+
 
     def edit(self):
         return 'edit post from repositories'
