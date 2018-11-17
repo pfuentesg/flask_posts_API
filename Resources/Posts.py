@@ -43,8 +43,9 @@ class Post(Resource):
         res = self.getOnePost.execute(id)
         return res
 
-    def patch(self):
-        return self.editPost.execute()
+    def patch(self, id):
+        data = request.get_json(force=True)
+        return self.editPost.execute(id, data)
 
-    def delete(self):
-        return self.removePost.execute()
+    def delete(self, id):
+        return self.removePost.execute(id)

@@ -19,8 +19,8 @@ class PostRepository:
         INSERTION = self.db.insert(content, author)
         return INSERTION
 
-    def edit(self):
-        return 'edit post from repositories'
+    def edit(self, id, content):
+        return self.db.edit_post(id, content)
 
     def remove(self):
         return 'remove post from repositories'

@@ -39,3 +39,10 @@ class Db:
         query = 'SELECT * FROM POSTS WHERE id={}'.format(id)
         results = self.query(query)
         return results.fetchone()
+
+    def edit_post(self, id, content):
+        connection = self.get_cursor()
+        query = "UPDATE POSTS SET content = ? WHERE id = {}".format(id)
+        connection.execute(query, (content,))
+        connection.commit()
+        connection.close()
