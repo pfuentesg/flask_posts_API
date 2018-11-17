@@ -22,5 +22,5 @@ class PostRepository:
     def edit(self, id, content):
         return self.db.edit_post(id, content)
 
-    def remove(self):
-        return 'remove post from repositories'
+    def remove(self, id):
+        return self.db.remove_post(id)

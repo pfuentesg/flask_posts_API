@@ -4,6 +4,7 @@ import datetime
 
 class Db:
     # TODO: serch for retriving object insted of values
+    # TODO send id after creating
     # TODO: when setting up config, watch for more options setting up sqlite3
     # TODO: when dockerize, create a ccompose field using external sqlite3
 
@@ -44,5 +45,12 @@ class Db:
         connection = self.get_cursor()
         query = "UPDATE POSTS SET content = ? WHERE id = {}".format(id)
         connection.execute(query, (content,))
+        connection.commit()
+        connection.close()
+
+    def remove_post(self, id):
+        connection = self.get_cursor()
+        query = "DELETE FROM POSTS WHERE id = {}".format(id)
+        connection.execute(query, )
         connection.commit()
         connection.close()
