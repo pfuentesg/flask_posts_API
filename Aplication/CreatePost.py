@@ -8,5 +8,10 @@ class CreatePost:
         self.repo = repo
 
     def execute(self, body):
-        response =  self.repo.create(body)
-        return  response
+        try :
+            response = self.repo.create(body)
+            if response:
+                return'', 201
+        except Exception as err:
+            print('Errorr creating post', err)
+            return 'Error creating post', 500

@@ -10,7 +10,7 @@ class GetPosts:
 
     def execute(self):
         try:
-            posts = self.repo.getUsers()
+            posts = self.repo.get()
             if posts:
                 return posts
             else:
