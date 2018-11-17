@@ -7,20 +7,20 @@ class Db:
     # TODO: when setting up config, watch for more options setting up sqlite3
     # TODO: when dockerize, create a ccompose field using external sqlite3
 
-    def getCursor(self):
+    def get_cursor(self):
         return sqlite3.connect('posts.db')
 
-    def creaeTable(self):
-        self.getCursor().execute(
+    def crete_table(self):
+        self.get_cursor().execute(
             "CREATE TABLE IF NOT EXISTS Posts (id integer primary key AUTOINCREMENT, content char, creationDate date  author char)")
 
     def query(self, query):
-        connection = self.getCursor()
+        connection = self.get_cursor()
         result = connection.execute(query)
         return result
 
     def query_and_commit(self, query_type, content, timestamp, author):
-        connection = self.getCursor()
+        connection = self.get_cursor()
         query = "{} INTO POSTS VALUES (NULL,?,?, ?)".format(query_type)
         connection.execute(query, (content, timestamp, author))
         connection.commit()

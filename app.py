@@ -12,6 +12,6 @@ def add_resources():
 
 
 if __name__ == '__main__':
-    db.creaeTable()
+    db.crete_table()
     add_resources()
     app.run()
