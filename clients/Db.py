@@ -16,7 +16,7 @@ class Db:
     def query(self, query):
         connection = self.getCursor()
         result = connection.execute(query)
-        return result.fetchall()
+        return result
 
     def query_and_commit(self, query_type, content, timestamp, author):
         connection = self.getCursor()
@@ -32,9 +32,9 @@ class Db:
 
     def queryAll(self):
         query = 'SELECT * FROM POSTS'
-        return self.query(query)
+        return self.query(query).fetchall()
 
     def findById(self, id):
-        query = 'SELECT * FROM POSTS WHERE id=? '.format(id)
+        query = 'SELECT * FROM POSTS WHERE id={}'.format(id)
         results = self.query(query)
-        return results[0]
+        return results.fetchone()

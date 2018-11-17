@@ -7,8 +7,8 @@ class PostRepository:
     def __init__(self):
         self.db = Db()
 
-    def getOne(self):
-        return 'get one post repositories'
+    def getOne(self, id):
+        return self.db.findById(id)
 
     def get_all_posts(self):
         return self.db.queryAll()
