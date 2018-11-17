@@ -10,8 +10,8 @@ class PostRepository:
     def getOne(self):
         return 'get one post repositories'
 
-    def getUsers(self):
-        return 'holi found'
+    def get_all_posts(self):
+        return self.db.queryAll()
 
     def create(self, body):
         content = body['content']

@@ -10,7 +10,7 @@ class GetPosts:
 
     def execute(self):
         try:
-            posts = self.repo.get()
+            posts = self.repo.get_all_posts()
             if posts:
                 return posts
             else:
