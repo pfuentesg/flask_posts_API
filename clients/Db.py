@@ -3,6 +3,7 @@ import datetime
 
 
 class Db:
+    # TODO: serch for retriving object insted of values
     # TODO: when setting up config, watch for more options setting up sqlite3
     # TODO: when dockerize, create a ccompose field using external sqlite3
 
@@ -30,11 +31,11 @@ class Db:
         timestamp = datetime.datetime.now()
         return self.query_and_commit('INSERT', content, timestamp, author)
 
-    def queryAll(self):
+    def query_all(self):
         query = 'SELECT * FROM POSTS'
         return self.query(query).fetchall()
 
-    def findById(self, id):
+    def find_by_id(self, id):
         query = 'SELECT * FROM POSTS WHERE id={}'.format(id)
         results = self.query(query)
         return results.fetchone()

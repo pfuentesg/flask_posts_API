@@ -8,4 +8,4 @@ class GetOnePost:
         self.repo = repo
 
     def execute(self, id):
-        return self.repo.getOne(id)
+        return self.repo.get_one(id)
