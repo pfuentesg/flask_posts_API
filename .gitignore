@@ -267,3 +267,6 @@ pyvenv.cfg
 pip-selfcheck.json
 
 # End of https://www.gitignore.io/api/flask,python,pycharm
+
+#sqlite3 db fields
+.db
