@@ -1,5 +1,3 @@
-from container import Db
-
 
 class GetOnePost:
     def __init__(self, repo):

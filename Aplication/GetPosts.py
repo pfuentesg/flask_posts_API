@@ -1,4 +1,3 @@
-from container import Db
 
 class GetPosts:
     def __init__(self, repo):

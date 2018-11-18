@@ -1,6 +1,6 @@
-from flask_restful import Resource, reqparse
-from container import getOnePost, getPosts, createPosts, editPost, removePost
 from flask import request
+from flask_restful import Resource
+from container import getOnePost, getPosts, createPosts, editPost, removePost
 
 
 class Posts(Resource):

@@ -1,4 +1,3 @@
-from container import Db
 
 class EditPost:
     def __init__(self, repo):
