@@ -14,3 +14,9 @@ getOnePost = GetOnePost.GetOnePost(postsRepository)
 createPosts = CreatePost.CreatePost(postsRepository)
 editPost = EditPost.EditPost(postsRepository)
 removePost = RemovePost.RemovePost(postsRepository)
+
+
+from http_instance.Server import app
+from http_instance.api import MainApi
+
+api = MainApi(app)
