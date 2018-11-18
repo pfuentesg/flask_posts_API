@@ -4,18 +4,18 @@ from clients.Db import Db
 db = Db()
 
 # Import repositories
-from repositories.PostsRepository import PostRepository
+from repositories.posts_repository import PostRepository
 
 postsRepository = PostRepository(db)
 
 # Import aplications
-from Aplication import GetPosts, CreatePost, EditPost, GetOnePost, RemovePost
+from Aplication import get_posts, create_post, edit_post, get_one_post, remove_post
 
-getPosts = GetPosts.GetPosts(postsRepository)
-getOnePost = GetOnePost.GetOnePost(postsRepository)
-createPosts = CreatePost.CreatePost(postsRepository)
-editPost = EditPost.EditPost(postsRepository)
-removePost = RemovePost.RemovePost(postsRepository)
+getPosts = get_posts.GetPosts(postsRepository)
+getOnePost = get_one_post.GetOnePost(postsRepository)
+createPosts = create_post.CreatePost(postsRepository)
+editPost = edit_post.EditPost(postsRepository)
+removePost = remove_post.RemovePost(postsRepository)
 
 # Import server instance
 from http_instance.Server import app

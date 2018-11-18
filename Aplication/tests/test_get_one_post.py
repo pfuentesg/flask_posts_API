@@ -1,4 +1,4 @@
-from Aplication.GetOnePost import GetOnePost
+from Aplication.get_one_post import GetOnePost
 
 test_post = {'id': 'test_id',
              'content': 'test_content',
