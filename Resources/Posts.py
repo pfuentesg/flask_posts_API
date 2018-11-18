@@ -1,13 +1,6 @@
 from flask_restful import Resource, reqparse
-from Aplication import GetPosts, CreatePost, EditPost, GetOnePost, RemovePost
-from repositories.PostsRepository import PostRepository
+from container import getOnePost, getPosts, createPosts, editPost, removePost
 from flask import request
-
-getPosts = GetPosts.GetPosts(PostRepository)
-getOnePost = GetOnePost.GetOnePost(PostRepository)
-createPosts = CreatePost.CreatePost(PostRepository)
-editPost = EditPost.EditPost(PostRepository)
-removePost = RemovePost.RemovePost(PostRepository)
 
 
 class Posts(Resource):
