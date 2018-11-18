@@ -9,4 +9,5 @@ class EditPost:
 
     def execute(self, id, data):
         content = data['content']
-        return self.repo.edit(id, content)
+        self.repo.edit(id, content)
+        return '', 204
