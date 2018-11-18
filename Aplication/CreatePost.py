@@ -1,11 +1,9 @@
-from repositories import PostsRepository
-
-repo = PostsRepository.PostRepository()
+from container import Db
 
 
 class CreatePost:
-    def __init__(self):
-        self.repo = repo
+    def __init__(self, repo):
+        self.repo = repo(Db)
 
     def execute(self, body):
         try :
