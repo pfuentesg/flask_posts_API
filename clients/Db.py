@@ -2,7 +2,6 @@ import sqlite3
 import datetime
 
 class Db:
-    # TODO send id after creating
     # TODO: when setting up config, watch for more options setting up sqlite3
     # TODO: when dockerize, create a ccompose field using external sqlite3
 
@@ -17,7 +16,8 @@ class Db:
 
     def query(self, query):
         connection = self.get_cursor()
-        result = connection.execute(query)
+        result = connection.cursor().execute(query)
+        connection.commit()
         return result
 
     def query_and_commit(self, query_type, content, timestamp, author):
@@ -26,8 +26,7 @@ class Db:
         query = "{} INTO POSTS VALUES (NULL,?,?, ?)".format(query_type)
         cursor.execute(query, (content, timestamp, author))
         _id = cursor.lastrowid
-        connection.commit()
-        connection.close()
+        self.commit_and_close_connection(connection)
         return {'id': _id}
 
     def insert(self, content, author):
@@ -47,12 +46,12 @@ class Db:
         connection = self.get_cursor()
         query = "UPDATE POSTS SET content = ? WHERE id = {}".format(id)
         connection.execute(query, (content,))
-        connection.commit()
-        connection.close()
+        self.commit_and_close_connection(connection)
 
     def remove_post(self, id):
-        connection = self.get_cursor()
         query = "DELETE FROM POSTS WHERE id = {}".format(id)
-        connection.execute(query, )
+        self.query(query)
+
+    def commit_and_close_connection(self, connection):
         connection.commit()
         connection.close()
