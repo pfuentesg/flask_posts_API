@@ -13,7 +13,7 @@ class Db:
 
     def crete_table(self):
         self.get_cursor().execute(
-            "CREATE TABLE IF NOT EXISTS Posts (id integer primary key AUTOINCREMENT, content char, creationDate date  author char)")
+            "CREATE TABLE IF NOT EXISTS Posts (id integer primary key AUTOINCREMENT, content char, creationDate date,  author char)")
 
     def query(self, query):
         connection = self.get_cursor()
