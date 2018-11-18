@@ -2,7 +2,7 @@
 
 class PostRepository:
     def __init__(self, db):
-        self.db = db()
+        self.db = db
 
     def get_one(self, id):
         return self.db.find_by_id(id)

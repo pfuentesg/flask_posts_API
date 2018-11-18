@@ -2,12 +2,15 @@ from clients.Db import Db
 
 db = Db()
 
-from Aplication import GetPosts, CreatePost, EditPost, GetOnePost, RemovePost
 from repositories.PostsRepository import PostRepository
 
+postsRepository = PostRepository(db)
 
-getPosts = GetPosts.GetPosts(PostRepository)
-getOnePost = GetOnePost.GetOnePost(PostRepository)
-createPosts = CreatePost.CreatePost(PostRepository)
-editPost = EditPost.EditPost(PostRepository)
-removePost = RemovePost.RemovePost(PostRepository)
+from Aplication import GetPosts, CreatePost, EditPost, GetOnePost, RemovePost
+
+
+getPosts = GetPosts.GetPosts(postsRepository)
+getOnePost = GetOnePost.GetOnePost(postsRepository)
+createPosts = CreatePost.CreatePost(postsRepository)
+editPost = EditPost.EditPost(postsRepository)
+removePost = RemovePost.RemovePost(postsRepository)

@@ -2,7 +2,7 @@ from container import Db
 
 class GetPosts:
     def __init__(self, repo):
-        self.repo = repo(Db)
+        self.repo = repo
         print('init de getPosts')
 
     def execute(self):

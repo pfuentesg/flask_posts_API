@@ -3,7 +3,7 @@ from container import Db
 
 class GetOnePost:
     def __init__(self, repo):
-        self.repo = repo(Db)
+        self.repo = repo
 
     def execute(self, id):
         post = self.repo.get_one(id)
