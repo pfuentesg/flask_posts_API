@@ -1,15 +1,15 @@
 import sqlite3
 import datetime
 
-
 class Db:
-    # TODO: serch for retriving object insted of values
     # TODO send id after creating
     # TODO: when setting up config, watch for more options setting up sqlite3
     # TODO: when dockerize, create a ccompose field using external sqlite3
 
     def get_cursor(self):
-        return sqlite3.connect('posts.db')
+        connection = sqlite3.connect('posts.db')
+        connection.row_factory = lambda column, row: dict(zip([col[0] for col in column.description], row))
+        return connection
 
     def crete_table(self):
         self.get_cursor().execute(
