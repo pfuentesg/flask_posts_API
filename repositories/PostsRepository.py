@@ -16,8 +16,7 @@ class PostRepository:
     def create(self, body):
         content = body['content']
         author = body['author']
-        INSERTION = self.db.insert(content, author)
-        return INSERTION
+        return self.db.insert(content, author)
 
     def edit(self, id, content):
         return self.db.edit_post(id, content)

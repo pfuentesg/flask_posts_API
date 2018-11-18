@@ -22,11 +22,13 @@ class Db:
 
     def query_and_commit(self, query_type, content, timestamp, author):
         connection = self.get_cursor()
+        cursor = connection.cursor()
         query = "{} INTO POSTS VALUES (NULL,?,?, ?)".format(query_type)
-        connection.execute(query, (content, timestamp, author))
+        cursor.execute(query, (content, timestamp, author))
+        _id = cursor.lastrowid
         connection.commit()
         connection.close()
-        return
+        return {'id': _id}
 
     def insert(self, content, author):
         timestamp = datetime.datetime.now()
