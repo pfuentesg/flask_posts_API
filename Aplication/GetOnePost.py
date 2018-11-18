@@ -8,4 +8,8 @@ class GetOnePost:
         self.repo = repo
 
     def execute(self, id):
-        return self.repo.get_one(id)
+        post = self.repo.get_one(id)
+        if post:
+            return post
+        else:
+            return {'message': 'Post not found'}, 404
