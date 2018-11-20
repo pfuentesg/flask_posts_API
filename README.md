@@ -9,12 +9,12 @@ This easy project create a REST API for managing posts.
 
 
 ## TODO:
-- [ ] Include Postgree as database (start with sqlite3)
-- [ ] Unit testing
+- [x] Include Postgree as database (start with sqlite3)
+- [ ] Unit testing (Doing)
 - [ ] Config field
 - [ ] logger
 - [ ] marshal 
-- [ ] Container for dependency
+- [x] Container for dependency
 - [ ] Integration test 
 - [ ] Swagger
 - [ ] Document all
