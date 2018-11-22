@@ -2,7 +2,12 @@
 
 This easy project create a REST API for managing posts.
 ## Architecture (To document)
-## Testing (To document)
+## Testing 
+This repository is using [pytest](https://docs.pytest.org/en/latest/contents.html#toc)
+to test the source code . to run tests just type ` pytest` and test will be passing for you
+
+-Tip: coverage: if you want to have test coverage, you only have to type `pytest -cov .` and this will return code
+ coverage for you, using what we have in .coveragerc to exclude your uwn test and virtual environment fields  
 ## config 
 ## swagger
 
