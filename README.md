@@ -8,6 +8,19 @@ to test the source code . to run tests just type ` pytest` and test will be pass
 
 -Tip: coverage: if you want to have test coverage, you only have to type `pytest -cov .` and this will return code
  coverage for you, using what we have in .coveragerc to exclude your uwn test and virtual environment fields  
+ 
+## Validation
+Flask-restful includes a really good validation library, called reqparse. al validations are inside folder validators
+- example:
+    
+  ```` python
+    from flask restful import reqparse
+
+    def my_awesome_validation():
+        parser = reqparse.RequestParser()
+        parser.add_argument('my_awesome_input', required=True, help='my awesome input')
+        return parser.parse_args()
+ 
 ## config 
 ## swagger
 
@@ -18,7 +31,7 @@ to test the source code . to run tests just type ` pytest` and test will be pass
 - [ ] Unit testing (Doing)
 - [ ] Config field
 - [ ] logger
-- [ ] marshal 
+- [x] body validation 
 - [x] Container for dependency
 - [ ] Integration test 
 - [ ] Swagger
