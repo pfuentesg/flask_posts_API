@@ -1,6 +1,7 @@
 from flask import request
 from flask_restful import Resource
 from validators.create_post_validator import validate_post_post
+from validators.patch_post_validator import validate_patch_post
 from container import getOnePost, getPosts, createPosts, editPost, removePost
 
 
@@ -33,7 +34,7 @@ class Post(Resource):
         return res
 
     def patch(self, id):
-        data = request.get_json(force=True)
+        data = validate_patch_post()
         return self.editPost.execute(id, data)
 
     def delete(self, id):
