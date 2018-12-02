@@ -1,6 +1,10 @@
 # Posts API REST made with python
-
 This easy project create a REST API for managing posts.
+
+CI status:
+
+Test:
+[![Test Status](https://travis-ci.org/pfuentesg/flask_posts_API.svg?branch=master)](https://travis-ci.org/pfuentesg/flask_posts_API)
 ## Architecture (To document)
 ## Testing 
 This repository is using [pytest](https://docs.pytest.org/en/latest/contents.html#toc)
