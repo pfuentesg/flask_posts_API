@@ -1,7 +1,5 @@
 import sqlite3
 import datetime
-import config
-
 
 class Db:
     # TODO: when setting up config, watch for more options setting up sqlite3
