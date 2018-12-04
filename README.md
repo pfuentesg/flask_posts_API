@@ -5,6 +5,8 @@ CI status:
 
 Test:
 [![Test Status](https://travis-ci.org/pfuentesg/flask_posts_API.svg?branch=master)](https://travis-ci.org/pfuentesg/flask_posts_API)
+Coverage:
+[![Coverage Status](https://coveralls.io/repos/github/pfuentesg/flask_posts_API/badge.svg?branch=master)](https://coveralls.io/github/pfuentesg/flask_posts_API?branch=master)
 ## Architecture (To document)
 ## Testing 
 This repository is using [pytest](https://docs.pytest.org/en/latest/contents.html#toc)
