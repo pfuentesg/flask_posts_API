@@ -1,18 +1,22 @@
 import sqlite3
 import datetime
+import config
+
 
 class Db:
     # TODO: when setting up config, watch for more options setting up sqlite3
     # TODO: when dockerize, create a ccompose field using external sqlite3
 
     def get_cursor(self):
-        connection = sqlite3.connect('posts.db')
+        self.db_name = config.db['name']
+        connection = sqlite3.connect(self.db_name)
         connection.row_factory = lambda column, row: dict(zip([col[0] for col in column.description], row))
         return connection
 
     def crete_table(self):
         self.get_cursor().execute(
-            "CREATE TABLE IF NOT EXISTS Posts (id integer primary key AUTOINCREMENT, content char, creationDate date,  author char)")
+            "CREATE TABLE IF NOT EXISTS {} (id integer primary key AUTOINCREMENT, content char, creationDate date,  author char)".format(
+                self.db_name))
 
     def query(self, query):
         connection = self.get_cursor()
