@@ -26,6 +26,8 @@ Flask-restful includes a really good validation library, called reqparse. al val
         return parser.parse_args()
  
 ## config 
+In [config.py](./config.py) we have an object saving all variables tat can be piked from 
+a environment variable or default value. You can import this object from container
 ## swagger
 
 
@@ -33,7 +35,7 @@ Flask-restful includes a really good validation library, called reqparse. al val
 ## TODO:
 - [x] Include Postgree as database (start with sqlite3)
 - [ ] Unit testing (Doing)
-- [ ] Config field
+- [x] Config field
 - [ ] logger
 - [x] body validation 
 - [x] Container for dependency
