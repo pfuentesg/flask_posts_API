@@ -4,7 +4,6 @@ import datetime
 class Db:
     def __init__(self, config):
         self.db_name = config.db['name']
-    # TODO: when setting up config, watch for more options setting up sqlite3
     # TODO: when dockerize, create a ccompose field using external sqlite3
 
     def get_cursor(self):
