@@ -6,8 +6,8 @@ db = {
 app = {
     'debug': os.getenv('app_debug', True),
     'environment': 'development',
-    'host': '0.0.0.0',
-    'port': '3030'
+    'host': os.getenv('HOST', '0.0.0.0'),
+    'port': os.getenv('PORT', '3030')
 }
 
 api = {
