@@ -9,6 +9,11 @@ def add_resources():
     api.add_source(Post, '/<int:id>')
 
 
+app.config['SWAGGER'] = {
+    'title': 'Posts Docs',
+}
+
+
 if __name__ == '__main__':
     db.crete_table()
     add_resources()
