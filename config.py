@@ -13,3 +13,7 @@ app = {
 api = {
     'context': '/api'
 }
+
+logger = {
+    'level': os.getenv('log_level', 'info')
+}

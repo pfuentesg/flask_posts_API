@@ -3,8 +3,10 @@ import config
 config = config
 # Import clients
 from clients.Db import Db
-
+from logger import logger
 db = Db(config)
+
+
 
 # Import repositories
 from repositories.posts_repository import PostRepository
