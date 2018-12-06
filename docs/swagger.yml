@@ -1,0 +1,101 @@
+swagger: "2.0"
+info:
+  description: "Simple posts api"
+  version: "1.0.0"
+  title: "Psosts service"
+basePath: "/api"
+paths:
+  /:
+    post:
+      summary: "Add a new post to the blog"
+      description: "Creates new post in user's account"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Pet object that needs to be added to the store"
+        required: true
+        schema:
+          $ref: "#/definitions/Post"
+      responses:
+        201:
+          description: "Post succesfully created"
+          schema:
+            type: object
+            properties:
+              id:
+                type: string
+            example:
+              - "{ id: '1' }"
+    get:
+      summary: ' Get all posts'
+      description: 'retrieves all posts stored in database'
+      responses:
+        200:
+          description: 'All posts'
+          schema:
+            $ref: "#/definitions/Posts"
+
+  /{postId}:
+    parameters:
+     - name: "postId"
+       in: "path"
+       description: "id from the post"
+       required: true
+       type: "string"
+
+    get:
+      summary: 'returns one post'
+      description: "returns post by it's id"
+      responses:
+        200:
+          description: 'Succesfull operation'
+          schema:
+            $ref: "#/definitions/PostResponse"
+
+    patch:
+      summary: 'Edits specific post'
+      description: 'Edits post with provided in params '
+      responses:
+        204:
+          description: OK
+
+    delete:
+      summary: 'Removes a post'
+      description: 'Removes post given in path'
+      responses:
+        204:
+          description: OK
+
+
+definitions:
+
+  Post:
+    type: object
+    required:
+     - "content"
+     - "author"
+    properties:
+      content:
+        type: string
+        example: 'my awesome content for the post'
+      author:
+        type: string
+        example: 'Peter griffin'
+
+  PostResponse:
+    allOf:
+     - $ref: '#/definitions/Post'
+     - type: object
+    properties:
+      timestamp:
+         type: string
+         example: '13/06/2998'
+
+  Posts:
+    type: array
+    items:
+     $ref: '#/definitions/PostResponse'
