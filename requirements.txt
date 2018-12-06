@@ -16,7 +16,6 @@ MarkupSafe==1.1.0
 mistune==0.8.4
 more-itertools==4.3.0
 pluggy==0.8.0
-psycopg2==2.7.6
 py==1.7.0
 pyee==5.0.0
 pytest==4.0.0
